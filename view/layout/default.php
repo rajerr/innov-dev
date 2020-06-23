@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,13 +9,14 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="public/style/style.css" rel="stylesheet">
+    <link href="" rel="stylesheet">
   </head>
   <body>
     <div class="container">
-    <?php
-      require_once "templates/presentation.php";
-    ?>
+        <a href="./pages/accueil.php"> 
+            <h2 class="col-9 section-heading text-center">BIENVENUE SUR LE CAMPUS DE INNOV-DEV</h2>
+            <h4 class="col-9 section-heading text-center">CLIQUEZ ICI POUR COMMENCER</h4>
+        </a>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
