@@ -10,26 +10,12 @@ class Controller{
 
     public function render(){
 
-        $pathView="./views/".$this->folder."/".$this->view.".php";
-        $pathLayout="./views/layout/".$this->layout.".php";
+        $pathView="./view/".$this->folder."/".$this->view.".php";
+        $pathLayout="./view/layout/".$this->layout.".php";
           ob_start();
              extract($this->data_view);
-           require_once($pathView);
+           require_once "$pathView";
            $content_for_layout=ob_get_clean();
           require_once($pathLayout);
     }
 }
-
-/*
-  $tab[
-      "nom"=>"Diop",
-      "prenom=>"Amadou"
-  ],
-
-  echo $tab["nom"],
-
-  extract($tab),
-  echo $nom,
-  echo $prenom,
-
-*/
