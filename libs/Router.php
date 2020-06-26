@@ -8,7 +8,7 @@ class Router{
 
         try{
             spl_autoload_register(function($class){
-                $pathModels="./models/".$class.".php";
+                $pathModels="./model/".$class.".php";
                 $pathDao="./dao/".$class.".php";
                 $pathLibs="./libs/".$class.".php";
                 if(file_exists($pathModels)){
@@ -23,20 +23,20 @@ class Router{
 
              if(isset($_GET['url'])){
                 $url=explode("/",filter_var($_GET['url'],FILTER_SANITIZE_URL));
-                  //Classe Controller
+
                   $ctrl= ucfirst(strtolower($url[0]))."Controller";
-                  $pathCtrl="./controller/".$ctrl.".php";
+                  $pathCtrl="./controler/".$ctrl.".php";
                     if(file_exists($pathCtrl)){
                         require_once($pathCtrl);
-                        //Instancier un Objet Controller
+
                         $this->ctrl=new $ctrl();
                         $action=$url[1];
                         if(method_exists($this->ctrl, $action)){
-                          //Action Existe dans le Controller
+
                            $this->ctrl->{$action}();
                         }else{
-                         //Action n'Existe pas dans le Controller
-                          $pathCtrl="./controller/ErreurController.php";
+
+                          $pathCtrl="./controler/ErreurController.php";
                           require_once($pathCtrl);
                           $erreurCtrl=new ErreurController();
                           $erreurCtrl->showError("Cette Methode   n'existe Pas");
@@ -51,6 +51,7 @@ class Router{
              }
              
         }catch(Exception $ex){
+            echo "une erreur est survenue";
         }
        
     }

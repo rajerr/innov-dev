@@ -10,6 +10,7 @@ abstract class Manager implements IDao{
       if($this->pdo==null){
           try{
             $this->pdo = new PDO("mysql:host=mysql-innov-dev.alwaysdata.net;dbname=innov-dev_db","innov-dev","Innov@Dev123");
+            //$this->pdo = new PDO("mysql:host=localhost;dbname=innov-dev_db","root");
             $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
           }catch(PDOException $ex){
              die("Erreur de Connexion à la base de données");
@@ -63,17 +64,5 @@ public function findById($id){
 public function delete($id){
     $sql="delete from $this->tableName where id=$id";
     return $this->executeUpdate($sql)!=0;
-}
-
-
-
-
-
-    //Connexion
-    //FermerConnexion
-    //Executer une requete et Retourner un Résultat
-       //Execution Requete MaJ(Insert,Update,delete)
-       //Execution requete Select
-
-    
+}   
 }

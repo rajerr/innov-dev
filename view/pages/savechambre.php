@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-lg-6 col-xlg-6 col-xs-9 col-sm-9 col-md-9 content bg-light float-right mx-auto d-block mt-2 border border-info">
         <h4 class="col-12 text-secondary section-heading text-center border border-secondary mt-2"> AJOUTER CHAMBRE</h4>
-        <form action="" method="post" class="text-secondary">
+        <form action="" method="post" class="text-secondary" id="saveChambre">
             <div class="form-group mt-4">
                 <label class=" mt-4 " for="type">Type chambre</label>
                 <select class="form-control" id="type" class="type">
