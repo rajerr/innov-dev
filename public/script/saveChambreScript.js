@@ -1,14 +1,11 @@
 $(document).ready(function(){
-    $('#valider').click(function(){
+    $('#enregistrer').click(function(){
  
      const numero = $('#numero').val();
      const type = $('#type').val();
      const num_batiment = $('#num_batiment').val();
-     const password = $('#password').val();
-     const cpassword = $('#cpassword').val();
-    // const photo = $('#photo').val();
      
-     if (numero=="" || type=="" || num_batiment=="") {
+     if ( type=="" || num_batiment=="") {
          alert('tous les champs sont obligatoires');
          return false;
          
@@ -20,9 +17,9 @@ $(document).ready(function(){
              dataType: "JSON",
              success: function (data) {
                  console.log(data);
-                 alert('enregistrement admin effectué')
+                 alert('enregistrement chmabre effectué')
                 if(data){
-                    $('#table').load('pages/liste-joueur.php'); 
+                    $('#table').load('pages/chambre'); 
                 }else{
                     alert('echec')
                 }

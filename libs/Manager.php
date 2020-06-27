@@ -9,8 +9,8 @@ abstract class Manager implements IDao{
       //Connexion est fermée
       if($this->pdo==null){
           try{
-            $this->pdo = new PDO("mysql:host=mysql-innov-dev.alwaysdata.net;dbname=innov-dev_db","innov-dev","Innov@Dev123");
-            //$this->pdo = new PDO("mysql:host=localhost;dbname=innov-dev_db","root");
+            //$this->pdo = new PDO("mysql:host=mysql-innov-dev.alwaysdata.net;dbname=innov-dev_db","innov-dev","Innov@Dev123");
+            $this->pdo = new PDO("mysql:host=localhost;dbname=innov-dev_db","root");
             $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
           }catch(PDOException $ex){
              die("Erreur de Connexion à la base de données");
@@ -27,12 +27,13 @@ abstract class Manager implements IDao{
     }
   }
 
-  public function executeUpdate($sql){
-          $this->getConnexion();
-           $nbreLigne= $this->pdo->exec($sql);
-          $this->closeConnexion();
-          return $nbreLigne;
-   }
+  public function executeUpdate($sql,$objet=null){
+    $this->getConnexion();
+    $statement = $this->pdo->prepare($sql);
+     $nbreLigne= $statement->execute($objet);
+    $this->closeConnexion();
+    return $nbreLigne;
+}
 
   public function executeSelect($sql){
       
